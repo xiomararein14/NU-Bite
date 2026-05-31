@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('icons.css');
+
+:root {
+  --nu-blue: #003DA5;
+  --nu-blue-dark: #002a75;
+  --nu-blue-light: #1a56c9;
+  --nu-gold: #FFD100;
+  --nu-gold-dark: #e6bc00;
+  --nu-gold-text: #172554;
+  --surface: #f8faff;
+  --surface-elevated: rgba(255, 255, 255, 0.94);
+  --input-bg: #eef4ff;
+  --border: #dbe6ff;
+  --border-strong: #b8ccff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 32px;
+  --shadow-sm: 0 4px 14px rgba(0, 61, 165, 0.06);
+  --shadow-md: 0 12px 32px rgba(0, 61, 165, 0.1);
+  --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 0 1px rgba(0, 61, 165, 0.06), 0 20px 50px rgba(0, 61, 165, 0.12);
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #eaf2ff 0%, #f5f9ff 45%, #fff7d6 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(0, 61, 165, 0.08) 0%, transparent 42%),
+    radial-gradient(circle at 92% 88%, rgba(255, 209, 0, 0.14) 0%, transparent 38%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 61, 165, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Brand logo */
+.logo,
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--nu-blue) 0%, var(--nu-blue-dark) 100%);
+  color: var(--nu-gold);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+  box-shadow:
+    0 0 0 3px rgba(255, 209, 0, 0.35),
+    0 8px 20px rgba(0, 61, 165, 0.35);
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 58px;
+  height: 58px;
+  font-size: 16px;
+}
+
+.brand h2,
+.brand-center h1 {
+  color: var(--nu-blue);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.brand p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Toast notifications */
+.toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--nu-blue);
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+  animation: toastIn 0.35s ease;
+  pointer-events: auto;
+  max-width: 320px;
+}
+
+.toast.warning {
+  border-left-color: var(--warning);
+}
+
+.toast.success {
+  border-left-color: var(--success);
+}
+
+.toast.error {
+  border-left-color: var(--danger);
+}
+
+@keyframes toastIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Modal */
+.logout-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.logout-box {
+  width: min(380px, 92vw);
+  background: white;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+  animation: popUp 0.25s ease;
+  border: 1px solid var(--border);
+}
+
+.logout-icon {
+  width: 72px;
+  height: 72px;
+  background: #fee2e2;
+  color: var(--danger);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  font-size: 30px;
+}
+
+.logout-box h2 {
+  color: var(--nu-blue);
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.logout-box p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+.logout-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.logout-actions button {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.cancel-btn {
+  background: var(--input-bg);
+  color: var(--nu-blue);
+}
+
+.cancel-btn:hover {
+  background: var(--border);
+}
+
+.confirm-btn {
+  background: var(--danger);
+  color: white;
+}
+
+.confirm-btn:hover {
+  filter: brightness(1.05);
+}
+
+@keyframes popUp {
+  from {
+    transform: scale(0.92) translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Empty states */
+.empty-state {
+  text-align: center;
+  padding: 40px 24px;
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, var(--input-bg), #fff);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  border: 2px dashed var(--border);
+}
+
+.empty-state h3 {
+  color: var(--nu-blue);
+  font-size: 16px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.empty-state p {
+  font-size: 13px;
+  line-height: 1.5;
+}

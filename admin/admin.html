@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NU Bite | Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="admin-app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">NU</div>
+      <div>
+        <h2>NU Bite</h2>
+        <p id="adminBrandSub">Stall Dashboard</p>
+      </div>
+    </div>
+
+    <div class="stall-admin-badge" id="stallAdminBadge">Stall 1</div>
+
+    <nav>
+      <button class="nav-btn active" onclick="showAdminTab('pending', this)">
+        <span class="nav-icon" data-icon="clipboard"></span> Pending Orders
+      </button>
+      <button class="nav-btn" onclick="showAdminTab('completed', this)">
+        <span class="nav-icon" data-icon="check-circle"></span> Completed Orders
+      </button>
+      <button class="nav-btn" onclick="showAdminTab('menu', this)">
+        <span class="nav-icon" data-icon="utensils"></span> Menu Management
+      </button>
+      <button class="nav-btn" onclick="showAdminTab('reports', this)">
+        <span class="nav-icon" data-icon="chart"></span> Sales & Reports
+      </button>
+      <button class="nav-btn" onclick="showAdminTab('feedback', this)">
+        <span class="nav-icon" data-icon="message"></span> Feedback
+      </button>
+      <button class="nav-btn" onclick="showAdminTab('about', this)">
+        <span class="nav-icon" data-icon="info"></span> About
+      </button>
+      <button class="nav-btn" onclick="showAdminTab('features', this)">
+        <span class="nav-icon" data-icon="sparkles"></span> Features / Solution
+      </button>
+    </nav>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </aside>
+
+  <main class="main-panel">
+    <div class="panel-header" id="panelHeader">
+      <div>
+        <h1 id="panelTitle">Pending Orders</h1>
+        <p id="panelSubtitle">Manage incoming canteen orders in real time</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-value" id="statPending">0</span>
+          <span class="stat-label">Pending</span>
+        </div>
+        <div class="stat-card gold">
+          <span class="stat-value" id="statCompleted">0</span>
+          <span class="stat-label">Completed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-tools" id="adminTools">
+      <div class="search-wrap">
+        <span class="search-icon" data-icon="search" data-icon-size="sm" aria-hidden="true"></span>
+        <input type="text" id="searchOrder" placeholder="Search order ID..." onkeyup="loadOrders()">
+      </div>
+      <input type="date" id="dateFilter" onchange="loadOrders()">
+      <button type="button" class="btn-clear" onclick="clearFilters()">Clear Filters</button>
+    </div>
+
+    <section id="pendingTab">
+      <div id="ordersContainer"></div>
+    </section>
+
+    <section id="completedTab" style="display:none;">
+      <div id="completedContainer"></div>
+    </section>
+
+    <section id="aboutTab" style="display:none;">
+      <div id="aboutMount"></div>
+    </section>
+
+    <section id="featuresTab" style="display:none;">
+      <div id="featuresMount"></div>
+    </section>
+
+    <section id="menuTab" style="display:none;">
+      <div class="menu-admin-header">
+        <h2 id="menuAdminTitle">Menu Management</h2>
+        <p id="menuAdminDesc">Manage menu items available at your stall.</p>
+        <p id="menuCountLabel" class="feedback-count-label"></p>
+      </div>
+      <div class="menu-admin-toolbar">
+        <button type="button" class="btn-add" onclick="openMenuForm()">+ Add Item</button>
+        <div class="search-wrap">
+          <span class="search-icon" data-icon="search" data-icon-size="sm" aria-hidden="true"></span>
+          <input type="text" id="menuSearchAdmin" placeholder="Search menu items..." onkeyup="loadMenuAdmin()">
+        </div>
+        <select id="menuCategoryFilter" onchange="loadMenuAdmin()">
+          <option value="">All categories</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Drinks">Drinks</option>
+        </select>
+        <select id="menuStallFilter" onchange="loadMenuAdmin()">
+          <option value="">All stalls</option>
+          <option value="1">Stall 1</option>
+          <option value="2">Stall 2</option>
+          <option value="3">Stall 3</option>
+        </select>
+        <button type="button" class="btn-clear" onclick="clearMenuFilters()">Clear Filters</button>
+      </div>
+      <div id="menuAdminList"></div>
+    </section>
+
+    <section id="reportsTab" style="display:none;">
+      <div id="reportsContainer"></div>
+    </section>
+
+    <section id="feedbackTab" style="display:none;">
+      <div class="feedback-admin-header">
+        <h2>Customer Feedback</h2>
+        <p>View insights from students and guests about service, food quality, the NU Bite system, ambiance, and more.</p>
+        <p id="feedbackCountLabel" class="feedback-count-label"></p>
+      </div>
+      <div class="feedback-admin-tools">
+        <div class="search-wrap">
+          <span class="search-icon" data-icon="search" data-icon-size="sm" aria-hidden="true"></span>
+          <input type="text" id="feedbackSearch" placeholder="Search name or comments..." onkeyup="loadAdminFeedback()">
+        </div>
+        <input type="date" id="feedbackDateFilter" onchange="loadAdminFeedback()">
+        <select id="feedbackRoleFilter" onchange="loadAdminFeedback()">
+          <option value="">All roles</option>
+          <option value="Student">Student</option>
+          <option value="Guest">Guest</option>
+        </select>
+        <button type="button" class="btn-clear" onclick="clearFeedbackFilters()">Clear Filters</button>
+      </div>
+      <div id="feedbackContainer"></div>
+    </section>
+  </main>
+</div>
+
+<div class="logout-modal menu-form-modal" id="menuFormModal">
+  <div class="logout-box">
+    <h2 id="menuFormTitle">Add Menu Item</h2>
+    <form id="menuItemForm" onsubmit="saveMenuItem(event)">
+      <div class="menu-form-field">
+        <label for="menuItemName">Item Name</label>
+        <input type="text" id="menuItemName" placeholder="e.g. Pork Adobo" required>
+      </div>
+      <div class="menu-form-field">
+        <label for="menuItemCategory">Category</label>
+        <select id="menuItemCategory" required>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Drinks">Drinks</option>
+        </select>
+      </div>
+      <div class="menu-form-field">
+        <label for="menuItemPrice">Price (₱)</label>
+        <input type="number" id="menuItemPrice" min="0" step="1" placeholder="75" required>
+      </div>
+      <div class="menu-form-field">
+        <label for="menuItemImg">Image Path</label>
+        <input type="text" id="menuItemImg" placeholder="../images/item-name.png">
+        <p class="menu-form-hint">Place image in the images folder, then use path like ../images/your-file.png</p>
+      </div>
+      <label class="menu-form-check">
+        <input type="checkbox" id="menuItemPopular">
+        Mark as Popular
+      </label>
+      <div class="menu-form-field" id="menuStallField">
+        <label>Stall assignment</label>
+        <label class="menu-form-check"><input type="checkbox" name="menuStall" value="1" checked> Stall 1</label>
+        <label class="menu-form-check"><input type="checkbox" name="menuStall" value="2" checked> Stall 2</label>
+        <label class="menu-form-check"><input type="checkbox" name="menuStall" value="3" checked> Stall 3</label>
+      </div>
+      <div class="menu-form-actions">
+        <button type="button" class="cancel-btn" onclick="closeMenuForm()">Cancel</button>
+        <button type="submit" class="confirm-btn">Save Item</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="logout-modal" id="logoutModal">
+  <div class="logout-box">
+    <div class="logout-icon" data-icon="log-out"></div>
+    <h2>Logout?</h2>
+    <p>Are you sure you want to logout from the admin panel?</p>
+
+    <div class="logout-actions">
+      <button class="cancel-btn" onclick="closeLogoutModal()">Cancel</button>
+      <button class="confirm-btn" onclick="confirmLogout()">Yes, Logout</button>
+    </div>
+  </div>
+</div>
+
+<script src="../shared/icons.js"></script>
+<script src="../shared/menu-data.js"></script>
+<script src="../shared/admin-auth.js"></script>
+<script src="../shared/about.js"></script>
+<script src="../shared/features.js"></script>
+<script src="../shared/feedback.js"></script>
+<script src="menu-admin.js"></script>
+<script src="stall-reports.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NU Bite | Student</title>
+  <link rel="stylesheet" href="student.css">
+</head>
+<body>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="student-app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">NU</div>
+      <div>
+        <h2>NU Bite</h2>
+        <p>Canteen Pre-Order</p>
+      </div>
+    </div>
+
+    <nav>
+      <button class="nav-btn active" onclick="showTab('menuTab', this)">
+        <span class="nav-icon" data-icon="utensils"></span> Menu Dashboard
+      </button>
+      <button class="nav-btn" onclick="showTab('trackTab', this)">
+        <span class="nav-icon" data-icon="package"></span> Track Order
+      </button>
+      <button class="nav-btn" onclick="showTab('aboutTab', this)">
+        <span class="nav-icon" data-icon="info"></span> About
+      </button>
+      <button class="nav-btn" onclick="showTab('featuresTab', this)">
+        <span class="nav-icon" data-icon="sparkles"></span> Features / Solution
+      </button>
+      <button class="nav-btn" onclick="showTab('feedbackTab', this)">
+        <span class="nav-icon" data-icon="message"></span> Feedback
+      </button>
+    </nav>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </aside>
+
+  <main class="main-panel">
+    <section id="menuTab" class="tab active">
+      <div class="menu-hero">
+        <div class="menu-hero-deco" data-icon="utensils" aria-hidden="true"></div>
+        <div class="menu-hero-content">
+          <h1 id="greeting">Welcome to NU Bite!</h1>
+          <p>Pre-order your favorite campus meals and skip the long canteen lines.</p>
+          <div class="hero-meta">
+            <span class="hero-badge"><span data-icon="map-pin" data-icon-size="sm"></span> NU Manila Campus</span>
+            <span class="hero-badge gold"><span data-icon="zap" data-icon-size="sm"></span> Fast Pickup</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="topbar">
+        <button class="hamburger" aria-label="Menu"><span data-icon="menu"></span></button>
+        <div class="search-wrap">
+          <span class="search-icon" data-icon="search" data-icon-size="sm" aria-hidden="true"></span>
+          <input id="searchFood" placeholder="Search dishes, drinks..." onkeyup="displayMenu()">
+        </div>
+        <span class="student-badge">Student</span>
+      </div>
+
+      <div class="stall-bar" id="stallBar">
+        <span class="stall-bar-label">Choose a stall:</span>
+        <button type="button" class="stall-btn active" data-stall="1" onclick="selectStall(1, this)">Stall 1</button>
+        <button type="button" class="stall-btn" data-stall="2" onclick="selectStall(2, this)">Stall 2</button>
+        <button type="button" class="stall-btn" data-stall="3" onclick="selectStall(3, this)">Stall 3</button>
+      </div>
+
+      <div class="categories" id="categoryBar">
+        <button class="category active" data-cat="All" onclick="filterCategory('All')">
+          <span class="cat-icon" data-icon="grid"></span>
+          <b>All</b><span class="cat-count">0 items</span>
+        </button>
+        <button class="category" data-cat="Breakfast" onclick="filterCategory('Breakfast')">
+          <span class="cat-icon" data-icon="sun"></span>
+          <b>Breakfast</b><span class="cat-count">0 items</span>
+        </button>
+        <button class="category" data-cat="Lunch" onclick="filterCategory('Lunch')">
+          <span class="cat-icon" data-icon="lunch"></span>
+          <b>Lunch</b><span class="cat-count">0 items</span>
+        </button>
+        <button class="category" data-cat="Drinks" onclick="filterCategory('Drinks')">
+          <span class="cat-icon" data-icon="cup"></span>
+          <b>Drinks</b><span class="cat-count">0 items</span>
+        </button>
+      </div>
+
+      <div class="menu-section-title">
+        <h2 id="stallMenuTitle">Stall 1 Menu</h2>
+        <span id="menuCount">Showing all items</span>
+      </div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <section id="paymentTab" class="tab">
+      <div class="payment-card">
+        <h1>Checkout & Payment</h1>
+        <p>Review your order and choose how you'd like to pay.</p>
+
+        <div class="order-recap" id="orderRecap"></div>
+
+        <select id="paymentMethod" onchange="showPaymentDetails()">
+          <option value="Cash on Pickup">Cash on Pickup</option>
+          <option value="GCash QR Code">GCash QR Code</option>
+          <option value="GCash Number Transfer">GCash Number Transfer</option>
+          <option value="Instapay Transfer">Instapay Transfer</option>
+        </select>
+
+        <div id="paymentDetails" class="payment-details"></div>
+
+        <button onclick="payNow()">Confirm & Pay</button>
+      </div>
+    </section>
+
+    <section id="trackTab" class="tab"></section>
+
+    <section id="aboutTab" class="tab">
+      <div id="aboutMount"></div>
+    </section>
+
+    <section id="featuresTab" class="tab">
+      <div id="featuresMount"></div>
+    </section>
+
+    <section id="feedbackTab" class="tab">
+      <div id="feedbackMount" data-role="Student"></div>
+    </section>
+
+    <section id="accountTab" class="tab">
+      <div class="payment-card">
+        <h1>Account Settings</h1>
+        <input placeholder="Student Name">
+        <input placeholder="Student Number">
+        <button>Save Changes</button>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-panel">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <span class="cart-count" id="cartCount">0</span>
+    </div>
+    <div id="cartItems"></div>
+
+    <div class="cart-bottom">
+      <div class="cart-total-row">
+        <span>Total Amount</span>
+        <h2 id="total">₱0</h2>
+      </div>
+      <button onclick="checkout()">Proceed to Checkout</button>
+    </div>
+  </aside>
+</div>
+
+<div class="logout-modal" id="logoutModal">
+  <div class="logout-box">
+    <div class="logout-icon" data-icon="log-out"></div>
+    <h2>Logout?</h2>
+    <p>Are you sure you want to logout from your student account?</p>
+
+    <div class="logout-actions">
+      <button class="cancel-btn" onclick="closeLogoutModal()">Cancel</button>
+      <button class="confirm-btn" onclick="confirmLogout()">Yes, Logout</button>
+    </div>
+  </div>
+</div>
+
+<script src="../shared/icons.js"></script>
+<script src="../shared/menu-data.js"></script>
+<script src="../shared/about.js"></script>
+<script src="../shared/features.js"></script>
+<script src="../shared/feedback.js"></script>
+<script src="student.js"></script>
+</body>
+</html>

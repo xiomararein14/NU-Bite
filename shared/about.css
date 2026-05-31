@@ -1,0 +1,95 @@
+.about-page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 8px 4px 40px;
+}
+
+.about-hero {
+  margin-bottom: 28px;
+  padding: 28px 32px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--nu-blue) 0%, var(--nu-blue-dark) 100%);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.about-hero h1 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.about-hero p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.about-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 26px 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.about-card h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--nu-blue);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--nu-gold);
+  display: inline-block;
+}
+
+.about-card p {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
+
+.sdg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.sdg-item {
+  padding: 18px 20px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(145deg, #f0f6ff 0%, #fff9e6 100%);
+  border: 1px solid var(--border);
+}
+
+.sdg-item strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--nu-blue);
+  margin-bottom: 8px;
+}
+
+.sdg-item p {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .about-page {
+    padding-bottom: 24px;
+  }
+
+  .about-hero,
+  .about-card {
+    padding: 20px;
+  }
+}

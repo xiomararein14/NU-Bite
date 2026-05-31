@@ -1,0 +1,235 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.icon-sm svg { width: 16px; height: 16px; }
+.icon-md svg { width: 20px; height: 20px; }
+.icon-lg svg { width: 28px; height: 28px; }
+.icon-xl svg { width: 36px; height: 36px; }
+
+.icon-inline {
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 6px;
+  vertical-align: -0.2em;
+}
+
+.nav-btn .nav-icon {
+  font-size: 0;
+}
+
+.nav-btn .nav-icon .icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.category .cat-icon {
+  font-size: 0;
+}
+
+.category .cat-icon .icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-badge .icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.hero-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-features .feature-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.hero-features .feature-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hero-footer-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-footer-item .icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.hamburger .icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.logout-icon {
+  font-size: 0;
+}
+
+.logout-icon .icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.empty-state-icon {
+  font-size: 0;
+}
+
+.empty-state-icon .icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--nu-blue);
+}
+
+.menu-hero-deco {
+  position: absolute;
+  right: 24px;
+  bottom: 16px;
+  width: 72px;
+  height: 72px;
+  opacity: 0.18;
+  color: white;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.menu-hero-deco svg {
+  width: 100%;
+  height: 100%;
+}
+
+.track-step > span:first-child {
+  font-size: 0;
+  display: grid;
+  place-items: center;
+}
+
+.track-step > span:first-child .icon svg {
+  width: 18px;
+  height: 18px;
+  color: #64748b;
+  stroke: #64748b;
+}
+
+.track-step.active > span:first-child .icon svg {
+  color: #fff;
+  stroke: #fff;
+}
+
+#togglePasswordBtn {
+  font-size: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  min-width: 40px;
+}
+
+#togglePasswordBtn .icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.search-wrap .search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+  color: var(--text-muted);
+  opacity: 0.65;
+}
+
+.search-wrap .search-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.empty-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.empty-message-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--surface, #f0f6ff);
+  border: 2px dashed var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+}
+
+.empty-message-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.empty-message p {
+  margin: 0;
+}
+
+.star-rating label {
+  font-size: 0 !important;
+}
+
+.star-rating label .icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.star-rating input:checked ~ label .icon svg,
+.star-rating label:hover .icon svg,
+.star-rating label:hover ~ label .icon svg {
+  color: var(--nu-gold-dark);
+  stroke: var(--nu-gold-dark);
+  fill: rgba(255, 209, 0, 0.35);
+}
+
+.star-rating label .icon svg {
+  color: #cbd5e1;
+  stroke: #cbd5e1;
+}
+
+.feedback-stars-inline .icon svg {
+  width: 14px;
+  height: 14px;
+  color: var(--nu-gold-dark);
+  stroke: var(--nu-gold-dark);
+}
+
+.feedback-stars-inline.muted .icon svg {
+  color: #cbd5e1;
+  stroke: #cbd5e1;
+}

@@ -1,0 +1,6 @@
+@import url('../student/student.css');
+
+.student-badge {
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  box-shadow: 0 6px 18px rgba(71, 85, 105, 0.25);
+}

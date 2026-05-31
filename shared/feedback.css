@@ -1,0 +1,331 @@
+.feedback-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 8px 4px 40px;
+}
+
+.feedback-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 32px 36px;
+  box-shadow: var(--shadow-glow);
+}
+
+.feedback-card h1 {
+  color: var(--nu-blue);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.feedback-card > .feedback-intro {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.feedback-field {
+  margin-bottom: 22px;
+}
+
+.feedback-field label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.feedback-field input[type="text"],
+.feedback-field textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: var(--transition);
+  resize: vertical;
+}
+
+.feedback-field input:focus,
+.feedback-field textarea:focus {
+  border-color: var(--nu-blue);
+  box-shadow: 0 0 0 3px rgba(0, 61, 165, 0.1);
+}
+
+.feedback-field textarea {
+  min-height: 120px;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.rating-row:last-of-type {
+  border-bottom: none;
+}
+
+.rating-row span.rating-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.star-rating {
+  display: flex;
+  gap: 4px;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #cbd5e1;
+  transition: color 0.15s ease;
+  margin: 0;
+  line-height: 1;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+  color: var(--nu-gold-dark);
+}
+
+.feedback-submit {
+  width: 100%;
+  border: none;
+  background: linear-gradient(135deg, var(--nu-blue) 0%, var(--nu-blue-light) 100%);
+  color: white;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 8px;
+  box-shadow: 0 6px 18px rgba(0, 61, 165, 0.25);
+  transition: var(--transition);
+}
+
+.feedback-submit:hover {
+  transform: translateY(-1px);
+}
+
+.feedback-recent {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.feedback-recent h3 {
+  font-size: 1rem;
+  color: var(--nu-blue);
+  margin-bottom: 12px;
+}
+
+.feedback-recent-item {
+  background: var(--surface);
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.feedback-recent-item strong {
+  color: var(--text-primary);
+}
+
+/* Admin feedback list */
+.feedback-admin-header {
+  margin-bottom: 20px;
+}
+
+.feedback-admin-header h2 {
+  color: var(--nu-blue);
+  font-weight: 800;
+  font-size: 1.35rem;
+}
+
+.feedback-admin-header p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.feedback-count-label {
+  font-weight: 600;
+  color: var(--nu-blue) !important;
+  margin-top: 10px !important;
+}
+
+.feedback-admin-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+  align-items: center;
+}
+
+.feedback-admin-tools .search-wrap {
+  flex: 1;
+  min-width: 200px;
+}
+
+.feedback-admin-tools select {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 14px;
+  background: white;
+  outline: none;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.feedback-admin-tools select:focus {
+  border-color: var(--nu-blue);
+  box-shadow: 0 0 0 3px rgba(0, 61, 165, 0.1);
+}
+
+.feedback-admin-tools input[type="date"] {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 14px;
+  background: white;
+  outline: none;
+  transition: var(--transition);
+}
+
+.feedback-admin-tools input[type="date"]:focus {
+  border-color: var(--nu-blue);
+  box-shadow: 0 0 0 3px rgba(0, 61, 165, 0.1);
+}
+
+.feedback-card-admin {
+  background: white;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.feedback-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.feedback-card-top h3 {
+  color: var(--nu-blue);
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.feedback-card-top small {
+  color: var(--text-muted);
+  font-size: 12px;
+  display: block;
+  margin-top: 4px;
+}
+
+.role-pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.role-pill.student {
+  background: #dbeafe;
+  color: var(--nu-blue);
+}
+
+.role-pill.guest {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.feedback-ratings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.feedback-rating-chip {
+  background: var(--surface);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  border: 1px solid var(--border);
+}
+
+.feedback-rating-chip b {
+  display: block;
+  color: var(--nu-blue);
+  margin-bottom: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.feedback-message-box {
+  background: var(--surface);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.feedback-message-box b {
+  display: block;
+  color: var(--nu-blue);
+  font-size: 12px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.feedback-message-box p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.feedback-avg {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 40px 20px;
+  font-size: 14px;
+}

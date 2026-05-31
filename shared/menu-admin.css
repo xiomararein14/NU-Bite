@@ -1,0 +1,294 @@
+.menu-admin-header {
+  margin-bottom: 20px;
+}
+
+.menu-admin-header h2 {
+  color: var(--nu-blue);
+  font-weight: 800;
+  font-size: 1.35rem;
+}
+
+.menu-admin-header p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.menu-admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+  align-items: center;
+}
+
+.menu-admin-toolbar .search-wrap {
+  flex: 1;
+  min-width: 200px;
+}
+
+.menu-admin-toolbar select {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 14px;
+  background: white;
+  outline: none;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.menu-admin-toolbar select:focus {
+  border-color: var(--nu-blue);
+  box-shadow: 0 0 0 3px rgba(0, 61, 165, 0.1);
+}
+
+.menu-admin-toolbar .btn-add {
+  border: none;
+  background: linear-gradient(135deg, var(--nu-gold) 0%, var(--nu-gold-dark) 100%);
+  color: var(--nu-gold-text);
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(255, 209, 0, 0.35);
+}
+
+.menu-admin-toolbar .btn-add:hover {
+  transform: translateY(-1px);
+}
+
+/* Clear / secondary action — matches NU Bite admin UI */
+.btn-clear,
+.menu-admin-toolbar .btn-clear,
+.feedback-admin-tools .btn-clear {
+  border: 2px solid var(--border-strong);
+  background: white;
+  color: var(--nu-blue);
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-clear:hover {
+  background: var(--input-bg);
+  border-color: var(--nu-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 61, 165, 0.12);
+}
+
+.btn-clear:active {
+  transform: translateY(0);
+}
+
+.menu-admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.menu-admin-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-admin-card-image {
+  height: 120px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.menu-admin-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-admin-card-body {
+  padding: 16px;
+  flex: 1;
+}
+
+.menu-admin-card-body h3 {
+  color: var(--nu-blue);
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.menu-admin-card-meta {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.menu-admin-card-meta .popular-tag {
+  display: inline-block;
+  background: #fff3cd;
+  color: #92400e;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+}
+
+.menu-admin-stalls {
+  margin: 6px 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stall-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--nu-blue);
+  background: var(--input-bg);
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+.menu-admin-card-actions {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+
+.menu-admin-card-actions button {
+  flex: 1;
+  border: none;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.btn-edit-menu {
+  background: var(--input-bg);
+  color: var(--nu-blue);
+  border: 1px solid var(--border) !important;
+}
+
+.btn-edit-menu:hover {
+  border-color: var(--nu-blue) !important;
+}
+
+.btn-delete-menu {
+  background: #fee2e2;
+  color: var(--danger);
+}
+
+.btn-delete-menu:hover {
+  background: #fecaca;
+}
+
+.menu-form-modal .logout-box {
+  width: min(480px, 92vw);
+  text-align: left;
+}
+
+.menu-form-modal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu-form-field {
+  margin-bottom: 16px;
+}
+
+.menu-form-field label {
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.menu-form-field input,
+.menu-form-field select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.menu-form-field input:focus,
+.menu-form-field select:focus {
+  border-color: var(--nu-blue);
+  box-shadow: 0 0 0 3px rgba(0, 61, 165, 0.1);
+}
+
+.menu-form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.menu-form-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--nu-blue);
+}
+
+.menu-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.menu-form-actions button {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.menu-form-actions .confirm-btn {
+  background: linear-gradient(135deg, var(--nu-blue) 0%, var(--nu-blue-light) 100%);
+  color: white;
+}
+
+.menu-form-actions .cancel-btn {
+  background: var(--input-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.menu-form-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
